@@ -5,7 +5,6 @@ Assignment for the Computer Architecture course at the University of Verona (202
 ## Structure
 
 - `src/` – the optimised `.blif` files (top-level circuit: `FSMD.blif`)
-- `legacy/` – an earlier, non-optimised version, kept for comparison
 - `Relazione.pdf` – full report (in Italian): specification, how the FSM works, design and optimisation choices
 
 ## How to run the simulation
