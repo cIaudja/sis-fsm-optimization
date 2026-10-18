@@ -1,34 +1,13 @@
-# elaborato-sis
-Elaborato sis per il corso di Architettura degli Elaboratori dell'Università di Verona, anno accademico 2022-2023.
+# SIS FSM optimisation
 
-Questo progetto riguarda l'ottimizzazione di circuiti digitali, in particolare il **datapath**, la **FSM** (Finite State Machine) e la **FSMD** (Finite State Machine with Datapath). La simulazione e la verifica del funzionamento sono state eseguite utilizzando l'ambiente **Sis**, che consente la descrizione e la simulazione di circuiti.
+Assignment for the Computer Architecture course at the University of Verona (2022–23). It is a digital circuit made of a controller (FSM) and a datapath, combined into an FSMD, described and simulated in SIS. Most of the work went into optimising the circuit.
 
-## Struttura del Progetto
+## Structure
 
-Il progetto è suddiviso come segue:
+- `src/` – the optimised `.blif` files (top-level circuit: `FSMD.blif`)
+- `legacy/` – an earlier, non-optimised version, kept for comparison
+- `Relazione.pdf` – full report (in Italian): specification, how the FSM works, design and optimisation choices
 
-### `src/`
-Contiene i file ottimizzati per il progetto. I file in questa cartella sono quelli utilizzati per la simulazione e ottimizzazione dei circuiti.
+## Running the simulation
 
-### `legacy/`
-Contiene la versione non ottimizzata del codice. Questa versione è stata inclusa per riferimento o per confronti con la versione ottimizzata.
-
-La documentazione del progetto è inclusa nel file **relazione.pdf**, che si trova nella root della repository.
-
-## Come Avviare
-
-Per avviare il progetto, consulta le istruzioni nel `README.md` della cartella `src/`, che descrive come utilizzare Docker e avviare la simulazione dei file **.blif**.
-
-## Tecnologie Usate
-
-- **Sis**: Ambiente di simulazione per circuiti digitali.
-- **Docker**: Utilizzato per eseguire l'ambiente Sis in modo isolato e portatile.
-
-## Documentazione
-
-La documentazione completa è inclusa nel file **relazione.pdf**, che descrive:
-
-- Le specifiche del progetto.
-- Il funzionamento della FSM.
-- La struttura del database.
-- I dettagli sull'ottimizzazione dei circuiti e delle componenti.
+SIS runs inside a Docker container. Step-by-step instructions are in [`src/README.md`](src/README.md).
