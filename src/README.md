@@ -1,46 +1,35 @@
-# Codice Ottimizzato - Cartella `src/`
+# Optimised circuit (`src/`)
 
-Questa cartella contiene i file **.blif** ottimizzati per il progetto, tra cui i principali come **FSMD.blif**.
+This folder contains the optimised `.blif` files. The top-level circuit is `FSMD.blif`.
 
-## Come Avviare
+## Simulating with SIS
 
-### 1. Apri Docker
-Assicurati che Docker sia in esecuzione sul tuo computer. Se non l'hai ancora fatto, puoi scaricarlo e installarlo da [qui](https://www.docker.com/products/docker-desktop).
+The commands below assume a local Docker image called `sis` (the one provided for the course).
 
-### 2. Avvia il contenitore Docker
-Apri il terminale e avvia il contenitore Docker eseguendo il comando seguente:
+1. Start Docker, then run the container from this folder:
 
-`docker run -it -v $PWD/.:/esercizio-sis -v $PWD/.bsis_history:/root/.bsis_history sis`
+   ```bash
+   docker run -it -v $PWD/.:/esercizio-sis -v $PWD/.bsis_history:/root/.bsis_history sis
+   ```
 
-Questo comando:
-- Mappa la cartella corrente (`$PWD/`) alla cartella `/esercizio-sis` nel contenitore.
-- Mappa anche la cartella `.bsis_history` per mantenere la cronologia dei comandi.
+   This mounts the current folder at `/esercizio-sis` and keeps the SIS command history between sessions.
 
-### 3. Naviga nella directory del progetto
-Nel terminale, dopo aver avviato il contenitore, naviga fino alla directory dove si trovano i file **.blif** eseguendo:
+2. Inside the container, go to the mounted folder and start SIS:
 
-`cd Desktop/uni/1_anno/architettura degli elaboratori/sis/Elaborato/Elaborato consegnato/sis`
+   ```bash
+   cd /esercizio-sis
+   sis
+   ```
 
-### 4. Avvia il programma
-Una volta dentro la cartella corretta, avvia il programma **sis** eseguendo il comando:
+3. Load the circuit (and, if you want, print its equations):
 
-`sis`
+   ```
+   rl FSMD.blif
+   write_eqn
+   ```
 
-Questo comando aprirà l'ambiente di simulazione.
+4. Simulate it by giving one binary value per input, for example:
 
-### 5. Carica il file FSMD.blif
-Per caricare il file **FSMD.blif**, esegui il comando:
-
-`rl FSMD.blif`
-
-### 5.1. Visualizza `write_enq`
-Se desideri visualizzare l'output di `write_enq`, esegui il comando:
-
-`write_enq`
-
-### 6. Testa i vari input
-Per testare il circuito e provare vari input, usa il comando `sim` seguito dai valori binari (0 o 1) per ogni input:
-
-`sim i1 i2 i3 i4 i5 i6`
-
-Dove `i1`, `i2`, `i3`, `i4`, `i5`, e `i6` rappresentano i valori binari (0 o 1) che vuoi fornire come input al circuito.
+   ```
+   sim 1 0 0 1 1 0
+   ```
